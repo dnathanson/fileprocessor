@@ -54,14 +54,13 @@ If you are using Java 7 on Mac OSX you will need to copy a couple of files in or
 Note that results of work done by FileWorkers is displayed on console since currently configured handler for all
 FileWorkers is just to dump JSON serialized results to log.
 
-Lists contents of all directories starting at current directory
+Gets the size of all files under at current directory (and subdirs). Does not calculate directory sizes.
 
 ```
-> java -jar target/fileprocessor-0.1.0.jar -d "." -o dir
+> java -jar target/fileprocessor-0.1.0.jar -d "." -o sizeof
 ```
 
-Lists size of all files under the current directory and the contents of all JAR files found under the current
-directory (this happens because both of those FileWorkers recognize the string "dir" as their operation).
+Lists contents off all directorories under the current directory and the contents of all JAR files found under the current directory (this happens because both of those FileWorkers recognize the string "dir" as their operation).
 
 ```
 > java -jar target/fileprocessor-0.1.0.jar -d "." -o dir
