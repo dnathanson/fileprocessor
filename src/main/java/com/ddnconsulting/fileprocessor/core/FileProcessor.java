@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -117,8 +116,7 @@ public class FileProcessor {
 
         // Starting at root directory, apply FileWorkerVisitor at all files in this directory and all subdirectories
         FileWorkerVisitor visitor = new FileWorkerVisitor(operations, executor, fileWorkerRegistry, resultsHandler, fileClassifier);
-        Files.walkFileTree(FileSystems.getDefault().getPath(directory), Collections.EMPTY_SET, 1,
-                           visitor);
+        Files.walkFileTree(FileSystems.getDefault().getPath(directory), visitor);
 
         executor.shutdown();
 
